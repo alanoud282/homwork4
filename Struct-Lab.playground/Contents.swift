@@ -20,11 +20,19 @@ struct Book {
 /*:
  Create an array of type Book and populate it with at least 3 books using a loop.
  */
-let books = [
-    Book(title: "A Handbook of Agile Software Craftsmanship", author: "Robert C. Martin", pages: 352, topic: "Programming"),
-    Book(title: "Deep Work", author: "Cal Newport", pages: 304, topic: "Self-Development"),
-    Book(title: "Cracking the Coding Interview ", author: "Gayle Laakmann McDowell", pages: 687, topic:"Programming")
+
+var books = [Book]()
+
+let bookData = [
+    ("A Handbook of Agile Software Craftsmanship", "Robert C. Martin", 464, "Programming"),
+    ("Cracking the Coding Interview: 189 Programming Questions and Solutions", "Gayle Laakmann McDowell", 687, "Programming"),
+    ("Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones", "James Clear", 320, "Self-Development")
 ]
+
+for data in bookData {
+    let book = Book(title: data.0, author: data.1, pages: data.2, topic: data.3)
+    books.append(book)
+}
 
 /*:
  Then, write a function called printBooksInTopic that takes two arguments: the array of books and a topic as a String. The function should print out the title and author of each book in the array that matches the specified topic.
